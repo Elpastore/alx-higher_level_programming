@@ -6,7 +6,7 @@ if __name__ == "__main__":
     len_argv = len(argv) - 1
 
     if len_argv == 0:
-        print("0 argument.")
+        print("0 arguments.")
 
     elif len_argv == 1:
         print("{:d} argument:".format(len_argv))
