@@ -42,8 +42,6 @@ int is_palindrome(listint_t **head)
 		len_list++;
 		current = current->next;
 	}
-	if (len_list == 1)
-		return (1);
 	for (i = 0; i < (len_list / 2); i++)
 	{
 		if (original->n != reverse->n)
