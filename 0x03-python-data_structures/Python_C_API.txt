@@ -1,0 +1,30 @@
+This is a small course to do the advanced task.
+The puporse of this task is to :
+1. Get the size of the list
+2. Get the allocated memory
+3. Get the type of each items in the list.
+
+So to do all of these things we need to discuss about the Python C API and python List
+==> Python C API is a set of interface that allow integration between Python and C
+programming language. It allow programmer to build module from C and imported to python
+	- PyObject is a fundamental C structure representing a Python Object.
+	- PyTypeObject defines the type of a Python object
+==========================How to Solve advenced task==============
+Before starting make sure to include Python.h libary
+1. Geting the Size of a list
+To get the size of a Python List(number of elements) we can use PyListSize function. This function return the length of the list object in list and is the equivalent to len(list) on a list object.
+Definition: Py_ssize_t PyList_Size(PyObject *list).
+So  we have our Python object *p that is the pointer to our type
+of object(the list).
+PyObject *p. so to know the length of the p list we can do like 
+this ===> PyList_Size(p)<===
+And to store the value we can define a variable in type ssize_t inthis way: Py_ssize_t size = PyList_Size(p)
+Know we can check for errors:
+if (size > 0)
+{
+	printf("Size of the list: %zd\n", listSize); // Use the specific message according to the task
+}
+else
+	PyErr_Print(); // Handle the error
+Important: There is another way to  get the length without handle error
+	We can do iit using Pylist_Get_SIZE(PyObject *list)
