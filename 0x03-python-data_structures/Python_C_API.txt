@@ -11,15 +11,18 @@ programming language. It allow programmer to build module from C and imported to
 	- PyTypeObject defines the type of a Python object
 ==========================How to Solve advenced task==============
 Before starting make sure to include Python.h libary
+
 1. Geting the Size of a list
-To get the size of a Python List(number of elements) we can use PyListSize function. This function return the length of the list object in list and is the equivalent to len(list) on a list object.
+To get the size of a Python List(number of elements) we can use PyListSize function. This function return the length of the list object 
+in list and is the equivalent to len(list) on a list object.
 Definition: Py_ssize_t PyList_Size(PyObject *list).
 So  we have our Python object *p that is the pointer to our type
 of object(the list).
 PyObject *p. so to know the length of the p list we can do like 
 this ===> PyList_Size(p)<===
 And to store the value we can define a variable in type ssize_t inthis way: Py_ssize_t size = PyList_Size(p)
-Know we can check for errors:
+Use the %zd in printf function to print the size
+Know we can check for errors(optinal):
 if (size > 0)
 {
 	printf("Size of the list: %zd\n", listSize); // Use the specific message according to the task
@@ -28,3 +31,16 @@ else
 	PyErr_Print(); // Handle the error
 Important: There is another way to  get the length without handle error
 	We can do iit using Pylist_Get_SIZE(PyObject *list)
+
+SO when you get some issue while compiling the program like #include <Python.h> header such file or directory
+try this:==> gcc -Wall -Werror -Wextra -pedantic -std=c99 -shared -Wl,-soname,PyList -o libPyList.so -fPIC -I/usr/include/python3.4 $(python3-config --cflags) 100-print_python_list_info.c $(python3-config --ldflags)<=== TO specify where to find the header file
+
+2. Get the allocated memory
+TO get the allocated memory of the list we can use the following code: (PyListObject *)p)->allocated
+Use the %zd to print the allocated memory
+
+3. Get the type of each items in the list
+So in this last part we have to use (((PyObject*)(p))->ob_type) to access the member of the list like this:
+(((PyObject *)(PyList_GetItem(p, i)))->ob_type->tp_name)
+It implique to use a loop to retrieve each element of the loop using the getting length(size)
+Then we use Py_TYPE(PyList_GetItem(p, i))->tp_name to get the type name of the i-th item in the list pointed to by p.
