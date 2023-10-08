@@ -43,4 +43,8 @@ Use the %zd to print the allocated memory
 So in this last part we have to use (((PyObject*)(p))->ob_type) to access the member of the list like this:
 (((PyObject *)(PyList_GetItem(p, i)))->ob_type->tp_name)
 It implique to use a loop to retrieve each element of the loop using the getting length(size)
-Then we use Py_TYPE(PyList_GetItem(p, i))->tp_name to get the type name of the i-th item in the list pointed to by p.
+Also we can use Py_TYPE(PyList_GetItem(p, i))->tp_name to get the type name of the i-th item in the list pointed to by p.It's a another way
+to get the type of each items of the list.
+
+# Thank you for following me :)!
+						########ALX-SE DOING HARD THINGs#########
