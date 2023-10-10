@@ -29,16 +29,14 @@ int is_palindrome(listint_t **head)
 	{
 		return (0);
 	}
-
-    /*Copy the list into the array*/
+	/*Copy the list into the array*/
 	while (original != NULL)
 	{
 		list[i] = original->n;
 		original = original->next;
 		i++;
 	}
-
-    /*Compare the elements for palindromicity*/
+	/*Compare the elements for palindromicity*/
 	for (i = 0; i < len_list / 2; i++)
 	{
 		if (list[i] != list[len_list - i - 1])
