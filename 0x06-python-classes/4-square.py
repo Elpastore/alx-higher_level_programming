@@ -41,7 +41,7 @@ class Square:
             -ValueError: Check for negatif integer
         """
         if not isinstance(value, int):
-            raise TypeError("size must be an interger")
+            raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
         else:
