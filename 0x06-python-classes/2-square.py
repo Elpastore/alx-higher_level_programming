@@ -16,6 +16,9 @@ class Square:
 
         Args:
             - size (int): The size of the square.
+        Raises:
+            TypeError: check for type error
+            ValueError: check if value is not negatif
         """
 
         if not isinstance(size, int):
