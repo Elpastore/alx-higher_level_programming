@@ -50,7 +50,9 @@ class Node:
             self.__next_node = value
 
 
-""" Module for the singly linked list itself"""
+"""
+Module for the singly linked list itself
+"""
 
 
 class SinglyLinkedList:
