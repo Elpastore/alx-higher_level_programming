@@ -80,6 +80,7 @@ class SinglyLinkedList:
             current.next_node = new_node
 
     def __str__(self):
+        """Method for printing list"""
         new_list = []
         current = self.__head
         while current:
