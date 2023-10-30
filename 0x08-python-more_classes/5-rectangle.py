@@ -96,4 +96,4 @@ class Rectangle:
         """
         delete message
         """
-        print(" Bye rectangle...")
+        print("Bye rectangle...")
