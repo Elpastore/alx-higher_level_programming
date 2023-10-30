@@ -13,7 +13,7 @@ class Rectangle:
         """
         Initialization of the class
         """
-        self.__witdth = width
+        self.__width = width
         self.__height = height
 
     @property
@@ -51,7 +51,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """
-        set the value of the weight
+        set the value of the heigth
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
