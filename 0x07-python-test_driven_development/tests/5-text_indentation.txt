@@ -8,7 +8,27 @@ Using ``text_indentation``
 
 Test for regular string:
 
->>> text_indentation("This is simple test. Let's see the result")
-This is simple test.
+>>> text_indentation("This is a test. So let's check: if it's ok , or not")
+This is a test.
 <BLANKLINE>
- Let's see the result
+So let's check:
+<BLANKLINE>
+if it's ok , or not
+
+>>> text_indentation("Hello")
+Hello
+
+>>> text_indentation("2236")
+2236
+ 
+>>> text_indentation(345)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+>>> text_indentation(str(34))
+34
+>>> text_indentation(str(34, ans))
+Traceback (most recent call last):
+	...
+NameError: name 'ans' is not defined
