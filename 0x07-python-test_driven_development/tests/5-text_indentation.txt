@@ -1,0 +1,14 @@
+The ``5-`text_indentation` module
+==================================
+
+Using ``text_indentation``
+---------------------------
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Test for regular string:
+
+>>> text_indentation("This is simple test. Let's see the result")
+This is simple test.
+<BLANKLINE>
+ Let's see the result

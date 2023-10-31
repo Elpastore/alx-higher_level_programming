@@ -1,0 +1,121 @@
+The ``2-matrix_divided`` modude
+===============================
+
+Using ``matrix_divided``
+-----------------------
+
+Import the function:
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Test for int:
+
+>>> matrix = [[1,3,4], [3,4,9]]
+>>> matrix_divided(matrix, 2) 
+[[0.5, 1.5, 2.0], [1.5, 2.0, 4.5]]
+
+Test for negatif value:
+
+>>> matrix = [[2,-16,4], [2,4,-10]]
+>>> matrix_divided(matrix, 2)
+[[1.0, -8.0, 2.0], [1.0, 2.0, -5.0]]
+>>> matrix = [[2.4,-16,4], [2,4.5,-10]]
+>>> matrix_divided(matrix, 2)
+[[1.2, -8.0, 2.0], [1.0, 2.25, -5.0]]
+
+Test for div:
+
+>>> matrix_divided(matrix, 2.4)
+[[1.0, -6.67, 1.67], [0.83, 1.88, -4.17]]
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Test for number lenght of matrix:
+
+>>> matrix = [[1, 2, 3]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0]]
+>>> matrix = [[1, 2, 3],]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0]]
+>>> matrix = [[1, 2, 3],[]]
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+	...
+TypeError: Each row of the matrix must have the same size
+>>> matrix = [[1, 2, 3],[2.3, 4]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+	...
+TypeError: Each row of the matrix must have the same size
+
+Test for int div:
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, -3)
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+Test for null div:
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+	...
+ZeroDivisionError: division by zero
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, '45')
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+>>> matrix_divided(matrix, None)
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+
+Test for convert div:
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, int('3'))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Test for missing div:
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix,)
+Traceback (most recent call last):
+	...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Test for invalid matrix:
+
+>>> matrix = "Matrix"
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test for invilad items:
+>> matrix = [[1, 2, 3],[2.3, 4, 'S']]
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+	...	
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test for boolen:
+
+>>> matrix = [[1, 2, True],[2.3, 4, False]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 0.33], [0.77, 1.33, 0.0]]
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, True)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+>>> matrix_divided(matrix, False)
+Traceback (most recent call last):
+	...
+ZeroDivisionError: division by zero
+

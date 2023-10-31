@@ -1,0 +1,117 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+--------------------
+Import function from module:
+	
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Checj for module doctring:
+
+>>> doc_mod = __import__('0-add_integer').__doc__
+>>> len(doc_mod) > 1
+True
+
+>>> doc_func = __import__('0-add_integer').__doc__
+>>> len(doc_func) > 1
+True
+
+Test addition using list:
+
+>>> [add_integer(i, i/2) for i in range(6)]
+[0, 1, 3, 4, 6, 7]
+>>> [add_integer(i, i**2) for i in range(6)]
+[0, 2, 6, 12, 20, 30]
+>>> [add_integer(i, i + 1) for i in range(6)]
+[1, 3, 5, 7, 9, 11]
+>>> [add_integer(i, i) for i in range(6)]
+[0, 2, 4, 6, 8, 10]
+
+Test two postif integer:
+
+>>> add_integer(6, 4)
+10
+
+Test two negatif integer:
+>>> add_integer(-6, -4)
+-10
+
+Test positif and negatif value:
+>>> add_integer(-6, 4)
+-2
+>>> add_integer(6, -4)
+2
+>>> add_integer(-6, 6)
+0
+
+Test One argument:
+>>> add_integer(0,)
+98
+>>> add_integer(2,)
+100
+
+Test float:
+>>> add_integer(3, 4.5)
+7
+>>> add_integer(6.5, 4.5)
+10
+>>> add_integer(10.5, -4.5)
+6
+>>> add_integer(-10.5, 4.5)
+-6
+
+Test for long int:
+>>> add_integer(999999999999999999999999999999, 99999999999999999)
+1000000000000099999999999999998
+>>> add_integer(-22222222222222345555555555555,555555555555555555555555555)
+-21666666666666790000000000000
+>>> add_integer(-22222222222222345555555555555,-2555555555555555555555555555)
+-24777777777777901111111111110
+
+Test for passed NaN:
+>> add_integer(1, float('nan'))
+Traceback (most recent call last):
+	...
+ValueError: cannot convert float NaN to integer
+
+Test for passed inf:
+>> add_integer(2,float('inf'))
+Traceback (most recent call last):
+	...
+OverflowError: cannot convert float infinity to integer
+
+Test invalid input:
+>>> add_integer(4, "school")
+Traceback (most recent call last):
+	...
+TypeError: Values should be integer or float
+
+>>> add_integer("school")
+Traceback (most recent call last):
+	...
+TypeError: Values should be integer or float
+
+Test for no argument:
+>>> add_integer()
+Traceback (most recent call last):
+	...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Test for boolen (False = 0 and True = 1):
+>>> add_integer(4, True)                                          
+5
+>>> add_integer(True, 1)
+2
+>>> add_integer(False, 1)
+1
+>>> add_integer(1)
+99
+>>> add_integer(True)
+99
+>>> add_integer(False)
+98
+>>> add_integer(0,False)
+0
+>>> add_integer(0,True)
+1
