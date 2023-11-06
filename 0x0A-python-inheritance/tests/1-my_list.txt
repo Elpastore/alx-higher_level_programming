@@ -71,3 +71,14 @@ Traceback (most recent call last):
 ...
 TypeError: list.append() takes exactly one argument (0 given)
 
+Test  type
+>>> my_list = MyList()
+>>> type(my_list)
+<class '1-my_list.MyList'>
+
+Test none
+>>> my_list = MyList(None)
+Traceback (most recent call last):
+...
+TypeError: 'NoneType' object is not iterable
+
