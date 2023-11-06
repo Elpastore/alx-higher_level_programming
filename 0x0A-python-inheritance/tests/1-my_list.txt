@@ -30,6 +30,13 @@ Test using the sorted method
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5, 7, 8]
 
+Test for sorted alread
+>>> new_list = [1, 2, 3, 4, 5, 7, 8]   
+>>> my_list = MyList(new_list)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 7, 8]
+
+
 Test using string
 >>> my_list = MyList()
 >>> my_list.append('3')
@@ -73,12 +80,16 @@ TypeError: list.append() takes exactly one argument (0 given)
 
 Test  type
 >>> my_list = MyList()
->>> type(my_list)
-<class '1-my_list.MyList'>
+>>> type(my_list) == MyList
+True
+
+Test for instance
+>>> my_list = MyList()
+>>> isinstance(my_list, list)
+True
 
 Test none
 >>> my_list = MyList(None)
 Traceback (most recent call last):
 ...
 TypeError: 'NoneType' object is not iterable
-
