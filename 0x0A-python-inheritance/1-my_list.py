@@ -1,22 +1,15 @@
 #!/usr/bin/python3
-""" 
-Module 1-my_list 
+"""
+module 1-my_list
 """
 
 
 class MyList(list):
-    """ 
-    Class of MyList
     """
-    pass
-
+    Class that inherite from list
+    """
     def print_sorted(self):
         """
-        print sorted list
+        method that print a list in sorted order
         """
-        print(sorted(list(self)))
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("tests/1-my_list.txt")
+        print(sorted(self))
