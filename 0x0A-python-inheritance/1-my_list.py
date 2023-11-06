@@ -13,7 +13,7 @@ class MyList(list):
         """
         print sorted list
         """
-        print(sorted(list(self))
+        print(sorted(list(self)))
 
 
 if __name__ == "__main__":
