@@ -12,7 +12,7 @@ class MyList(list):
         """
         method that print a list in sorted order
         """
-        sorted_list = sorted(self)
+        sorted_list = list(sorted(self))
         print(sorted_list)
 
 
