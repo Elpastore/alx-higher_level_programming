@@ -1,0 +1,95 @@
+The ``1-my_list.py`` module
+============================
+
+Using ``1-my_list``
+--------------------
+Import function from module:
+>>> MyList = __import__("1-my_list").MyList         
+
+Test withouot calling the class:
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(5)
+>>> my_list.append(4)
+>>> my_list.append(8)
+>>> my_list.append(3)
+>>> my_list.append(7)
+>>> print(my_list)
+[1, 2, 5, 4, 8, 3, 7]
+
+Test using the sorted method
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(5)
+>>> my_list.append(4)
+>>> my_list.append(8)
+>>> my_list.append(3)
+>>> my_list.append(7)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 7, 8]
+
+Test for sorted alread
+>>> new_list = [1, 2, 3, 4, 5, 7, 8]   
+>>> my_list = MyList(new_list)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 7, 8]
+
+
+Test using string
+>>> my_list = MyList()
+>>> my_list.append('3')
+>>> my_list.append('3')
+>>> my_list.append('2')
+>>> my_list.append('8')
+>>> my_list.append('1')
+>>> my_list.print_sorted()
+['1', '2', '3', '3', '8']
+
+Test using negatif number:
+>>> neg_list = [-5, -3, -4, -2, -1, -7, -6]
+>>> my_list = MyList(neg_list)
+>>> print(my_list)
+[-5, -3, -4, -2, -1, -7, -6]
+>>> my_list.print_sorted()
+[-7, -6, -5, -4, -3, -2, -1]
+
+Test using
+>>> _list = [-5, 3, -4, 2, 1, -7, 6]
+>>> _list.print_sorted()
+Traceback (most recent call last):
+...
+AttributeError: 'list' object has no attribute 'print_sorted'
+>>> my_list = MyList(_list)  
+>>> my_list.print_sorted()
+[-7, -5, -4, 1, 2, 3, 6]
+
+Test for empty list
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+Test for invalid input
+
+Test for none argument
+>>> my_list.append()
+Traceback (most recent call last):
+...
+TypeError: list.append() takes exactly one argument (0 given)
+
+Test  type
+>>> my_list = MyList()
+>>> type(my_list) == MyList
+True
+
+Test for instance
+>>> my_list = MyList()
+>>> isinstance(my_list, list)
+True
+
+Test none
+>>> my_list = MyList(None)
+Traceback (most recent call last):
+...
+TypeError: 'NoneType' object is not iterable
