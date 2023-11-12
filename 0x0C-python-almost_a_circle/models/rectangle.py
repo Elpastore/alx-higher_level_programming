@@ -133,5 +133,18 @@ class Rectangle(Base):
                 if hasattr(self, key):
                     setattr(self, key, value)
 
+    def to_dictionary(self):
+        """
+        return the dictionary representaion of a Rectangle
+        """
+        dictionary = {
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
+                }
+        return dictionary
+
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
