@@ -59,5 +59,8 @@ class Square(Rectangle):
         return dictionary
 
     def __str__(self):
+        """
+        str method
+        """
         return "[Square] ({}) {}/{} - {}".format(self.id,
                                                  self.x, self.y, self.width)
