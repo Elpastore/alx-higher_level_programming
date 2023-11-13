@@ -11,7 +11,7 @@ class Square(Rectangle):
     """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
-    
+
     @property
     def size(self):
         """
@@ -37,7 +37,7 @@ class Square(Rectangle):
         method that assigns attributes
         """
         key = ["id", "size", "x", "y"]
-        
+
         if args:
             for i, arg in enumerate(args):
                 setattr(self,  key[i], arg)
@@ -58,7 +58,5 @@ class Square(Rectangle):
                 }
         return dictionary
 
-
-   
     def __str__(self):
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)

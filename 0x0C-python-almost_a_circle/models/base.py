@@ -2,8 +2,8 @@
 """
 base.py module
 """
-
 import json
+
 
 class Base:
     """
@@ -28,7 +28,7 @@ class Base:
         """
         static method that serilized the list_dictionaries
         """
-        
+
         if list_dictionaries:
             return json.dumps(list_dictionaries)
         else:
@@ -40,7 +40,7 @@ class Base:
         method that saves list_objs to a file
         """
         filename = "{:s}.json".format(cls.__name__)
-        
+
         if list_objs is None:
             list_objs = []
 
@@ -66,10 +66,10 @@ class Base:
         Returns an instance with all attributes already set
         """
         if cls.__name__ == 'Rectangle':
-            dummy = cls(1,1)
+            dummy = cls(1, 1)
         if cls.__name__ == 'Square':
             dummy = cls(1)
-        
+
         dummy.update(**dictionary)
 
         return dummy
