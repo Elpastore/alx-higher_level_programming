@@ -88,3 +88,42 @@ class Base:
         with open(class_name, 'r') as file:
             list_dicts = cls.from_json_string(file.read())
             return [cls.create(**dictionary) for dictionary in list_dicts]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Serialistion in csv"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
+                             for obj in list_objs]
+            else:
+                list_objs = [[obj.id, obj.size, obj.x, obj.y]
+                             for obj in list_objs]
+        with open(f"{cls.__name__}.csv", "w", newline="",
+                  encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialisation from csv
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+        list_objs = list()
+        with open(f"{cls.__name__}.csv", "r", newline="",
+                  encoding="utf-8") as file:
+            data = csv.reader(file)
+            for row in data:
+                attrs = [int(element) for element in row]
+                if cls is Rectangle:
+                    d = {"id": attrs[0], "width": attrs[1], "height": attrs[2],
+                         "x": attrs[3], "y": attrs[4]}
+                else:
+                    d = {"id": attrs[0], "size": attrs[1],
+                         "x": attrs[2], "y": attrs[3]}
+                list_objs.append(cls.create(**d))
+        return list_objs
