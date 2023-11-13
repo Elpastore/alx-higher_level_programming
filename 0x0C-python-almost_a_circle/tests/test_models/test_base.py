@@ -8,18 +8,25 @@ from models.square import Square
 
 
 class Test_Base(unittest.TestCase):
-
+"""
+test for class Base
+"""
     def setup(self):
         """
         reset the class counter before each test
         """
         Base._Base__nb_objects = 0
     def test_initialization_with_id(self):
+        """
+        initialisation test
+        """
         obj = Base(id=42)
         self.assertEqual(obj.id, 42)
 
     def test_initialization_without_id(self):
-
+        """
+        mixed way
+        """
         obj1 = Base()
         obj2 = Base()
         obj3 = Base()
@@ -38,7 +45,9 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(obj8.id, 7)
 
     def test_to_json_string(self):
-
+        """
+        serialisation test
+        """
         Base._Base__nb_objects = 0
         input_list = [{"id": 1, "width": 2, "height": 3}, {"id": 2, "width": 4, "height": 5}]
         expected_output = '[{"id": 1, "width": 2, "height": 3}, {"id": 2, "width": 4, "height": 5}]'
@@ -54,7 +63,9 @@ class Test_Base(unittest.TestCase):
             Base.to_json_string(input_list_3)
 
     def test_save_to_file(self):
-
+        """
+        saved test
+        """
         filename = "Rectangle.json"
         r1 = Rectangle(1, 2)
         r2 = Rectangle(3, 4)

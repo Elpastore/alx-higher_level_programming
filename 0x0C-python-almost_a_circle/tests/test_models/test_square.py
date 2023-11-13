@@ -10,13 +10,18 @@ from models.square import Square
 class TestSquare(unittest.TestCase):
 
     def test_size_validation(self):
+        """
+        test fir size value
+        """
         with self.assertRaises(TypeError):
             s = Square("invalid")
         with self.assertRaises(ValueError):
             s = Square(-5)
 
     def test_init(self):
-
+        """
+        test for iniatialisation
+        """
         Base._Base__nb_objects = 0
 
         s1 = Square(5)
@@ -33,6 +38,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s3.area(), 9)
 
     def test_print_area(self):
+        """
+        test for print area
+        """
         saved_output = sys.stdout
         sys.stdout = io.StringIO()
 
@@ -67,7 +75,9 @@ class TestSquare(unittest.TestCase):
         sys.stdout = saved_output
 
     def test_to_dictionary(self):
-
+        """
+        test for dictionary
+        """
         s = Square(1, 2, 3, 4)
         expected_dict = {'id': 4, 'size': 1, 'x': 2, 'y': 3}
         self.assertEqual(s.to_dictionary(), expected_dict)
@@ -77,7 +87,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(type(s.to_dictionary()), dict)
 
     def test_str(self):
-
+        """
+        test for _str_
+        """
         s = Square(1, 2, 3, 4)
         expected_output = "[Square] (4) 2/3 - 1"
         self.assertEqual(str(s), expected_output)

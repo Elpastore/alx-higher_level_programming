@@ -10,11 +10,13 @@ from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
-
-    def setupt(self):
-        Base._Base__nb_objects = 0
-
+    """
+    Test for class rectangle
+    """
     def test_id(self):
+        """
+        test for id
+        """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
@@ -27,7 +29,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.id, 3)
 
     def test_width_height(self):
-
+        """
+        test for width and height value
+        """
         with self.assertRaises(TypeError):
             r = Rectangle("invalid", 5)
         with self.assertRaises(ValueError):
@@ -56,6 +60,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.height, 4)
 
     def test_x_y(self):
+        """
+        test for x and y value
+        """
         r = Rectangle(1, 1, 2, 3)
 
         self.assertEqual(r.x, 2)
@@ -71,7 +78,9 @@ class TestRectangle(unittest.TestCase):
             r.x = -5
 
     def test_area(self):
-
+        """
+        test for area
+        """
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
         r3 = Rectangle(5, 3, 0, 0, 12)
@@ -83,7 +92,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.area(), 12)
 
     def test_display(self):
-
+        """test for display method"""
         saved_output = sys.stdout
         sys.stdout = io.StringIO()
 
@@ -96,7 +105,9 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = saved_output
 
     def test_display_2(self):
-
+        """
+        test 2 for display
+        """
         saved_output = sys.stdout
         sys.stdout = io.StringIO()
 
@@ -123,7 +134,9 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = saved_output
 
     def test_print(self):
-
+        """
+        test for str method
+        """
         Base._Base__nb_objects = 0
         r2 = Rectangle(4, 6, 2, 1)
         print_r2 = "[Rectangle] (1) 2/1 - 4/6"
@@ -142,7 +155,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r4), print_r4)
 
     def test_update(self):
-
+        """
+        test for updated
+        """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 10, 10, 10)
         r1_dictionary = r1.to_dictionary()
@@ -159,7 +174,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.__str__(), "[Rectangle] (1) 10/10 - 10/10")
 
     def test_dictionary(self):
-
+        """
+        test for dictionary
+        """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
