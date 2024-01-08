@@ -85,12 +85,12 @@ Test invalid input:
 >>> add_integer(4, "school")
 Traceback (most recent call last):
 	...
-TypeError: Values should be integer or float
+TypeError: b must  be integer or float
 
 >>> add_integer("school")
 Traceback (most recent call last):
 	...
-TypeError: Values should be integer or float
+TypeError: a must  be integer or float
 
 Test for no argument:
 >>> add_integer()
