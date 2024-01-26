@@ -3,7 +3,8 @@
 takes in a URL and an email, sends a POST request to
 the passed URL
 """
-from urllib.request import parse, Request
+from urllib.request import urlopen, Request
+from urllib import parse
 from sys import argv
 
 if __name__ == '__main__':
